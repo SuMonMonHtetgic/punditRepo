@@ -1,0 +1,28 @@
+<%# #app/views/layouts/application.html.erb %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pundit - Blog by sm</title>
+    <%= csrf_meta_tags %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "turbo", type: "module" %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   
+
+
+  </head>
+  <body class="font-monospace">
+    <%= render "layouts/navigation" %>
+     <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="bg-danger flash <%= key %>"><%= value %></div>
+        <%# <div><%= key %>
+      <% end %>
+    </div>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+  </body>
+</html>
